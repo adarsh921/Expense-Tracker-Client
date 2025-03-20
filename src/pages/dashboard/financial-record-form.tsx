@@ -21,15 +21,15 @@ type formData = {
   category: string;
   payment: string;
 };
-const defaultFormData = {
-  description: "",
-  amount: 0,
-  category: "",
-  payment: "",
-};
+// const defaultFormData = {
+//   description: "",
+//   amount: 0,
+//   category: "",
+//   payment: "",
+// };
 export const FinancialRecordForm = () => {
   const { records } = useFinancialRecords();
-  const { setRecords } = useFinancialRecords();
+  // const { setRecords } = useFinancialRecords();
 
   const [formData, setFormData] = useState<formData>({
     description: "",

@@ -25,7 +25,7 @@ export const FinancialRecordList = () => {
   const handleChange = (e: any) => {
     setEditValue(e.target.value);
   };
-  const handleClick = (e: any, rowId: any, col: any) => {
+  const handleClick = ( rowId: any, col: any) => {
     // setRecords((prev: any) =>
     //   prev.map((record: any) =>
     //     rowId === record._id
@@ -102,7 +102,7 @@ export const FinancialRecordList = () => {
           {records?.map((record) => (
             <TableRow key={record._id}>
               <TableCell
-                onClick={(e) => handleClick(e, record._id, record.description)}
+                onClick={() => handleClick( record._id, record.description)}
               >
                 {edit &&
                 isEditing === record._id &&
@@ -136,7 +136,7 @@ export const FinancialRecordList = () => {
                 )}
               </TableCell>
               <TableCell
-                onClick={(e) => handleClick(e, record._id, record.amount)}
+                onClick={() => handleClick( record._id, record.amount)}
               >
                 {edit &&
                 isEditing === record._id &&
@@ -169,7 +169,7 @@ export const FinancialRecordList = () => {
                 )}
               </TableCell>
               <TableCell
-                onClick={(e) => handleClick(e, record._id, record.category)}
+                onClick={() => handleClick( record._id, record.category)}
               >
                 {edit &&
                 isEditing === record._id &&
@@ -202,7 +202,7 @@ export const FinancialRecordList = () => {
                 )}
               </TableCell>
               <TableCell
-                onClick={(e) => handleClick(e, record._id, record.payment)}
+                onClick={() => handleClick( record._id, record.payment)}
               >
                 {edit &&
                 isEditing === record._id &&
