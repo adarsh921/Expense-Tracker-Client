@@ -20,6 +20,8 @@ interface FinancialRecordContextType {
   fetchRecords: () => void;
 }
 
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
 export const FinancialRecordContext = createContext<
   FinancialRecordContextType | undefined
 >(undefined);
@@ -35,7 +37,7 @@ export const FinancialRecordProvider = ({
   const addRecord = async (record: FinancialRecord) => {
     try {
       const response = await fetch(
-        "https://expense-tracker-server-theta-umber.vercel.app/financial-records",
+        `${API_BASE_URL}/financial-records`,
         {
           method: "POST",
           body: JSON.stringify(record),
@@ -63,7 +65,7 @@ export const FinancialRecordProvider = ({
       return;
     }
     const response = await fetch(
-      `https://expense-tracker-server-theta-umber.vercel.app/financial-records/getAllByUserId/${user?.id}`
+      `${API_BASE_URL}/financial-records/getAllByUserId/${user?.id}`
     );
 
     if (response.ok) {
@@ -80,16 +82,13 @@ export const FinancialRecordProvider = ({
 
   const updateRecord = async (id: string, record: FinancialRecord) => {
     try {
-      const response = await fetch(
-        `https://expense-tracker-server-theta-umber.vercel.app/financial-records/${id}`,
-        {
-          method: "PUT",
-          body: JSON.stringify(record),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(`${API_BASE_URL}/financial-records/${id}`, {
+        method: "PUT",
+        body: JSON.stringify(record),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       if (response.ok) {
         const records = await response.json();
         console.log(records);
@@ -101,12 +100,9 @@ export const FinancialRecordProvider = ({
 
   const deleteRecord = async (id: string) => {
     try {
-      const response = await fetch(
-        `https://expense-tracker-server-theta-umber.vercel.app/financial-records/${id}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const response = await fetch(`${API_BASE_URL}/financial-records/${id}`, {
+        method: "DELETE",
+      });
       if (response.ok) {
         console.log("deleted");
       }
