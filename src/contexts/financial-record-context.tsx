@@ -34,13 +34,16 @@ export const FinancialRecordProvider = ({
 
   const addRecord = async (record: FinancialRecord) => {
     try {
-      const response = await fetch("http://localhost:3000/financial-records", {
-        method: "POST",
-        body: JSON.stringify(record),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://expense-tracker-server-theta-umber.vercel.app/financial-records",
+        {
+          method: "POST",
+          body: JSON.stringify(record),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (response.ok) {
         const newRecord = await response.json();
@@ -60,7 +63,7 @@ export const FinancialRecordProvider = ({
       return;
     }
     const response = await fetch(
-      `http://localhost:3000/financial-records/getAllByUserId/${user?.id}`
+      `https://expense-tracker-server-theta-umber.vercel.app/financial-records/getAllByUserId/${user?.id}`
     );
 
     if (response.ok) {
@@ -78,7 +81,7 @@ export const FinancialRecordProvider = ({
   const updateRecord = async (id: string, record: FinancialRecord) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/financial-records/${id}`,
+        `https://expense-tracker-server-theta-umber.vercel.app/financial-records/${id}`,
         {
           method: "PUT",
           body: JSON.stringify(record),
@@ -99,7 +102,7 @@ export const FinancialRecordProvider = ({
   const deleteRecord = async (id: string) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/financial-records/${id}`,
+        `https://expense-tracker-server-theta-umber.vercel.app/financial-records/${id}`,
         {
           method: "DELETE",
         }
