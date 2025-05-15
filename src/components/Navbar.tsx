@@ -19,7 +19,7 @@ const Navbar = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const handleMenuOpen = (event) => {
+  const handleMenuOpen = (event:any) => {
     setAnchorEl(event.currentTarget);
   };
   const handleMenuClose = () => {
