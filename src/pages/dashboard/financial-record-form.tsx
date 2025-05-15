@@ -97,7 +97,11 @@ export const FinancialRecordForm = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
-          width: "60%",
+          width: {
+            xs: "100%",
+            sm: "100%",
+            md: "60%",
+          },
         }}
       >
         <TextField
@@ -187,42 +191,51 @@ export const FinancialRecordForm = () => {
         item
         sx={{
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
+          flexDirection: "row",
+          // justifyContent: "space-between",
           alignItems: "center",
-          width: "40%",
+          width: { xs: "100%", md: "40%" },
           p: 2,
           pb: 5,
+          flexWrap: "wrap",
         }}
       >
-        <Box sx={{ height: "50%", p: 4 }}>
+        <Box sx={{ height: "50%", p: 4,width:"100%" }}>
           <Typography variant="h5">Total Expenses:</Typography>
-          <Paper
-            elevation={10}
-            sx={{
-              height: "50%",
-              mt: 4,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            <Box sx={{ fontSize: "large", fontWeight: "bold" }}>
-              {totalExpense}₹
-            </Box>
-          </Paper>
+          <Box sx={{display:"flex",flexDirection:"row", width:"100%",alignItems:"baseline"}}>
+            <Paper
+              elevation={10}
+              sx={{
+                height: "100%",
+                mt: 4,
+                // display: "flex",
+                // flexDirection: "column",
+                // justifyContent: "center",
+                width:"90%",
+                p:2,
+                mr:3
+              }}
+            >
+              <Box sx={{ fontSize: "large", fontWeight: "bold" }}>
+                {totalExpense}₹
+              </Box>
+            </Paper>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              size="small"
+              sx={{
+                boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
+                borderRadius: "5px",
+                height:"50px"
+                
+              }}
+            >
+              Add
+            </Button>
+          </Box>
         </Box>
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          sx={{
-            boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
-            borderRadius: "40px",
-          }}
-        >
-          Add Record
-        </Button>
       </Grid>
     </Grid>
   );

@@ -11,9 +11,12 @@ export const Dashboard = () => {
         p: 2,
         minHeight: "auto",
         maxHeight: "500px",
+        // height:"100%",
         backgroundColor: "#EBE3CF",
         overflow: "auto",
         clipPath: "inset(1px round 20px)",
+        // width:"100vw"
+      marginTop:{xs:"17%",sm:"10%"}
       }}
     >
       <Box>
